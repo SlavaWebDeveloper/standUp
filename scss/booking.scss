@@ -1,0 +1,146 @@
+/* style */
+$font-family: var(--font-family, Onest);   
+$error-color: var(--error-color, #990000);   
+$confirmation-color: var(--confirmation-color, #00992b);   
+$page-background: var(--page-background, #ebecf1);  
+$button-confirmation: var(--button-confirmation, #00992b);   
+$button-error: var(--button-error, #990000);   
+$background-color-button: var(--background-color-button, #ffc219); 
+$background-image: var(--background-image);   
+$header-text-color: var(--header-text-color, #fff);
+$text-color: var(--text-color, #1a1a1a);   
+$placeholder-colot: var(--placeholder-colot, #bababa);   
+
+.booking {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: $text-color;
+
+  // .booking__container
+
+  &__container {
+  }
+
+  // .booking__title
+
+  &__title {
+    font-size: 46px;
+    font-weight: 800;
+    margin-bottom: 50px;
+  }
+
+  // .booking__form
+
+  &__form {
+  }
+
+  // .booking__fieldset
+
+  &__fieldset {
+
+    // .booking__fieldset_user-info
+
+    &_user-info {
+      margin-bottom: 50px;
+    }
+
+    // .booking__fieldset_commedians
+
+    &_commedians {
+      margin-bottom: 122px;
+    }
+  }
+
+  // .booking__legend
+
+  &__legend {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  // .booking__input-group
+
+  &__input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  // .booking__input
+
+  &__input {
+    display: block;
+    max-width: 380px;
+    height: 44px;
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  // .booking__input-fullname
+
+  &__input-fullname {
+  }
+
+  // .booking__input-phone
+
+  &__input-phone {
+  }
+
+  // .booking__input-ticket
+
+  &__input-ticket {
+  }
+
+  // .booking__commedians-list
+
+  &__commedians-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  // .booking__commedian
+
+  &__commedian {
+    display: flex;
+    align-items: center;
+  }
+  
+  // .booking__select
+
+  &__select {
+
+    // .booking__select_comedian
+
+			&_comedian {
+        margin-right: 8px;
+			}
+
+			// .booking__select_time
+
+			&_time {
+        margin-right: 18px;
+			}
+  }
+
+  // .booking__hall
+
+  &__hall {
+  }
+
+  // .booking__button
+
+  &__button {
+    font-size: 18px;
+  }
+
+  // .booking__button-sumbit
+
+  &__button-sumbit {
+  }
+}

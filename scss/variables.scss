@@ -1,0 +1,17 @@
+/* Root variables */
+
+:root {
+  --font-family: Onest, sans-serif;
+  --error-color: #990000;
+  --confirmation-color: #00992b;
+  --page-background: #ebecf1;
+
+  --button-confirmation: var(--confirmation-color, #00992b);
+  --button-error: var(--error-color, #990000);
+  --background-color-button: #ffc219;
+  --background-image: url('./images/background.jpg');
+
+  --header-text-color: #fff;
+  --text-color: #1a1a1a;
+  --placeholder-colot: #bababa;
+}

@@ -1,0 +1,106 @@
+/* style */
+$font-family: var(--font-family, Onest);   
+$error-color: var(--error-color, #990000);   
+$confirmation-color: var(--confirmation-color, #00992b);   
+$page-background: var(--page-background, #ebecf1);  
+$button-confirmation: var(--button-confirmation, #00992b);   
+$button-error: var(--button-error, #990000);   
+$background-color-button: var(--background-color-button, #ffc219); 
+$background-image: var(--background-image);   
+$header-text-color: var(--header-text-color, #fff);
+$text-color: var(--text-color, #1a1a1a);   
+$placeholder-colot: var(--placeholder-colot, #bababa);   
+
+
+.event {
+  width: 100%;
+  min-height: 100vh;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background-color: $page-background;
+  background-image: $background-image;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: $header-text-color;
+  
+  // .event__title
+
+  &__title {
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 1.2; 
+  }
+
+  // .event__info
+
+  &__info {
+    display: flex;
+    gap: 80px; /*TODO*/
+    margin: 47px 0 62px;
+  }
+
+  // .event__info-item
+
+  &__info-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+    font-size: 30px;
+
+    // .event__info-item_day
+
+    &_day {
+    }
+
+    // .event__info-item_hall
+
+    &_hall {
+    }
+
+    // .event__info-item_duration
+
+    &_duration {
+    }
+
+    // .event__info-item_comedians
+
+    &_comedians {
+    }
+  }
+
+  // .event__info-number
+
+  &__info-number {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1.2; 
+  }
+
+  // .event__button
+
+  &__button {
+
+    font-size: 24px;
+
+    // .event__button_reserve
+
+    &_reserve {
+      margin-bottom: 24px;
+    }
+
+    
+    &_edit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+    }
+  }  
+}
