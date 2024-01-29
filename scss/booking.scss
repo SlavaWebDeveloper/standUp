@@ -17,6 +17,7 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   display: flex;
   align-items: center;
   color: $text-color;
+  background-color: $page-background;
 
   // .booking__container
 
@@ -29,6 +30,17 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     font-size: 46px;
     font-weight: 800;
     margin-bottom: 50px;
+    line-height: 1.2;
+
+    @include tablet {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    @include mobile-s {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
   }
 
   // .booking__form
@@ -44,21 +56,27 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
 
     &_user-info {
       margin-bottom: 50px;
+
+      @include tablet {
+        margin-bottom: 40px;
+      }
     }
 
     // .booking__fieldset_commedians
 
     &_commedians {
       margin-bottom: 122px;
+
+      @include tablet {
+        margin-bottom: 82px;
+      }
     }
   }
 
   // .booking__legend
 
   &__legend {
-    font-size: 18px;
     font-weight: 800;
-    line-height: 1.4;
     margin-bottom: 20px;
   }
 
@@ -66,9 +84,11 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
 
   &__input-group {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 8px;
+
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
   // .booking__input
@@ -78,7 +98,38 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     max-width: 380px;
     height: 44px;
     width: 100%;
-    flex: 1 1 100%;
+    font-size: 18px;
+    line-height: 1.4;
+    border-radius: 8px;
+    background-color: #fff;
+    color: $text-color;
+    border: 1px solid transparent;
+    padding: 0 16px;
+
+    @include mobile {
+      max-width: none;
+    }
+
+    &::placeholder {
+      color: $placeholder-colot;
+    }
+    
+    &:hover {
+      color: #f9f9f9; 
+    }
+    
+    &:focus {
+      border-color:#bcbcbc;
+      outline: none
+    }
+
+    &_valid {
+      border-color: $confirmation-color;
+    }
+
+    &_invalid {
+      border-color: $error-color;
+    }
   }
 
   // .booking__input-fullname
@@ -109,21 +160,43 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   &__commedian {
     display: flex;
     align-items: center;
+
+    @include mobile-s {
+      flex-wrap: wrap;
+    }
   }
   
   // .booking__select
 
   &__select {
+    margin-right: 8px;
+    width: 100%;
+    height: 44px;
+    
+    font-size: 18px;
+    line-height: 1.4;
+
+    border-radius: 8px;
+    background-color: #fff;
+    color: $text-color;
+    border: 1px solid transparent;
+    padding: 0 16px;
 
     // .booking__select_comedian
 
 			&_comedian {
-        margin-right: 8px;
+        max-width: 380px;
+
+        @include mobile-s {
+          max-width: none;
+          margin-bottom: 8px;
+        }
 			}
 
 			// .booking__select_time
 
 			&_time {
+        max-width: 183px;
         margin-right: 18px;
 			}
   }
@@ -131,6 +204,11 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   // .booking__hall
 
   &__hall {
+    white-space: nowrap;
+    font-size: 18px;
+    line-height: 1.4;
+    padding-right: 32px;
+    background: url('./../images/gg_qr.svg') right/24px no-repeat;
   }
 
   // .booking__button
