@@ -1,3 +1,4 @@
 @import "normalize.css";
 @import "./fonts/fonts.css";
+@import "tom-select/dist/css/tom-select.default.css";
 @import "./scss/style.scss";
