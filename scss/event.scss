@@ -11,7 +11,6 @@ $header-text-color: var(--header-text-color, #fff);
 $text-color: var(--text-color, #1a1a1a);   
 $placeholder-colot: var(--placeholder-colot, #bababa);   
 
-
 .event {
   width: 100%;
   min-height: 100vh;
@@ -28,21 +27,42 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   background-repeat: no-repeat;
 
   color: $header-text-color;
+
+  padding: 30px;
   
+  @include tablet-above {
+    background: blue;
+  }
+
+  @include tablet {
+    background: red;
+  }
+
   // .event__title
 
   &__title {
     font-size: 100px;
     font-weight: 800;
     line-height: 1.2; 
+    margin-bottom: 50px;
+    text-align: center;
+
+    @include tablet {
+      font-size: 70px;
+    }
   }
 
   // .event__info
 
   &__info {
     display: flex;
-    gap: 80px; /*TODO*/
-    margin: 47px 0 62px;
+    gap: 80px; 
+    margin-bottom: 62px;
+
+    @include tablet {
+      gap: 50px; 
+      margin-bottom: 45px;
+    }
   }
 
   // .event__info-item
@@ -53,6 +73,11 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     gap: 8px;
 
     font-size: 30px;
+    line-height: 1.4;
+
+    @include tablet {
+      font-size: 24px;
+    }
 
     // .event__info-item_day
 
@@ -80,7 +105,11 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   &__info-number {
     font-size: 80px;
     font-weight: 800;
-    line-height: 1.2; 
+    line-height: 1.2;
+    
+    @include tablet {
+      font-size: 50px;
+    }
   }
 
   // .event__button
@@ -93,6 +122,11 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
 
     &_reserve {
       margin-bottom: 24px;
+
+      @include tablet {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
     }
 
     
