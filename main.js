@@ -1,9 +1,11 @@
 import './style.css'
 import TomSelect from 'tom-select'
 
+const MAX_COMEDIANS = 6;
+
 const bookingCommediansList = document.querySelector('.booking__commedians-list');
 
-const creatCommedianBlock = () => {
+const creatCommedianBlock = (comedians) => {
   const bookingCommedian = document.createElement('li');
   bookingCommedian.classList.add('booking__commedian');
 
@@ -25,26 +27,17 @@ const creatCommedianBlock = () => {
 
   const bookingHall = document.createElement('button');
   bookingHall.classList.add('booking__hall');
+  bookingHall.type = 'button';
 
   bookingCommedian.append(bookingSelectCommedian, bookingSelectTime, inputHidden);
 
   const bookingTomSelectCommedian = new TomSelect(bookingSelectCommedian, {
     hideSelected: true, 
     placeholder: 'Выбрать комика',
-    options: [
-      {
-      value: 1,
-      text: 'Белый',
-      },
-      {
-        value: 2,
-        text: 'Темный',
-      },
-      {
-        value: 3,
-        text: 'Желтый',
-      }
-    ]
+    options: comedians.map(item => ({
+      value: item.id,
+      text: item.comedian,
+    })),    
   });
 
   const bookingTomSelectTime = new TomSelect(bookingSelectTime, {
@@ -53,58 +46,70 @@ const creatCommedianBlock = () => {
   });
   bookingTomSelectTime.disable();
 
-  bookingTomSelectCommedian.on('change', () => {
+  bookingTomSelectCommedian.on('change', (id) => {
     bookingTomSelectTime.enable();
-    
-    bookingTomSelectTime.addOptions([
-      {
-      value: 1,
-      text: 'Белый',
-      },
-      {
-        value: 2,
-        text: 'Темный',
-      },
-      {
-        value: 3,
-        text: 'Желтый',
-      }
-    ])
+    bookingTomSelectTime.blur();
+
+    const {performances} = comedians.find((item) => item.id === id );
+
+    bookingTomSelectTime.clear();
+    bookingTomSelectTime.clearOptions();
+    bookingTomSelectTime.addOptions(
+      performances.map((item) =>({
+        value: item.time,
+        text: item.time,
+      })),
+    );
+
+    bookingHall.remove();
   });
 
-  bookingTomSelectTime.on('change', () => {
-    bookingTomSelectTime.blur();
-    bookingHall.textContent = "Зал 1";
+  bookingTomSelectTime.on('change', (time) => {
+    if (!time) {
+      return;
+    }
+    const idComedian = bookingTomSelectCommedian.getValue();
+    const { performances } = comedians.find((item) => item.id === idComedian );
+    const { hall } = performances.find((item) => item.time === time );
+    inputHidden.value = `${idComedian}, ${time}`;
+
+    bookingTomSelectTime.blur();  
+    bookingHall.textContent = hall;
     bookingCommedian.append(bookingHall);
+
   });
-    
+
+  const createNextBookingComedian = () => {
+    if (bookingCommediansList.children.length < MAX_COMEDIANS) {
+      const nextComediansBlock = creatCommedianBlock(comedians);
+      bookingCommediansList.append(nextComediansBlock);
+    };
+
+    bookingTomSelectTime.off('change', createNextBookingComedian);
+  }
+
+  bookingTomSelectTime.on('change', createNextBookingComedian)
+
 
   return bookingCommedian
 }
 
-const init = () => {
+const getComedians = async () => {
+  const response = await fetch('http://localhost:8080/comedians');
+  return response.json();
+}
 
-  const comedianBlock = creatCommedianBlock();
+const init = async () => {  
+  const countComedians = document.querySelector('.event__info-item_comedians .event__info-number');
+
+  const comedians = (await getComedians());
+
+  countComedians.textContent = comedians.length;  
+  // console.log('comedians: ', comedians);
+
+  const comedianBlock = creatCommedianBlock(comedians);
 
   bookingCommediansList.append(comedianBlock);
 }
 
-
 init()
-
-/* 
-
-<li class="booking__commedian">
-  <select class="booking__select booking__select_comedian" name="comedian">
-    <option value="1">Юлия Ахмедова</option>
-    <option value="2">Слава Комиссаренко</option>
-  </select>
-
-  <select class="booking__select booking__select_time" name="time">
-    <option value="20:00">20:00</option>
-    <option value="22:00">22:00</option>
-  </select>
-
-  <button class="booking__hall">Залл 1</button>
-booking__commedians-list</li>
-*/
