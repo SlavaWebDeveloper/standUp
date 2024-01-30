@@ -1,7 +1,4 @@
 @import "normalize.css";
 @import "./fonts/fonts.css";
-@import "./scss/variables.scss";
-@import "./scss/base.scss";
-@import "./scss/themes.scss";
-@import "./scss/event.scss";
-@import "./scss/booking.scss";
+@import "tom-select/dist/css/tom-select.default.css";
+@import "./scss/style.scss";
