@@ -1,0 +1,31 @@
+.notification {
+  position: fixed;
+  inset-inline-end: 50px;
+  inset-block-end: 50px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  border-radius: 16px;
+  background-color: var(--background-color-button);
+  padding: 32px;
+  z-index: 100;
+  opacity: 0;
+  transform: translateX(100%);
+
+  &_show{
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &_error {
+    background-color: var(--button-error);
+  }
+
+  &_success {
+    padding-right: 76px;
+    background: var(--button-confirmation) url('../images/check.svg') right 32px center / 36px no-repeat;
+  }
+
+
+}

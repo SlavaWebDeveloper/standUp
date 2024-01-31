@@ -1,9 +1,14 @@
+import { Notification } from './scripts/notification';
 import './style.css'
 import TomSelect from 'tom-select'
 
 const MAX_COMEDIANS = 6;
 
+const notification = Notification.getInstance();
+
 const bookingCommediansList = document.querySelector('.booking__commedians-list');
+
+const bookingForm = document.querySelector('.booking__form');
 
 const creatCommedianBlock = (comedians) => {
   const bookingCommedian = document.createElement('li');
@@ -110,6 +115,30 @@ const init = async () => {
   const comedianBlock = creatCommedianBlock(comedians);
 
   bookingCommediansList.append(comedianBlock);
+
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = {booking: []};
+    const times = new Set();
+
+    new FormData(bookingForm).forEach((value, field) => {
+      if (field === 'booking') {
+        const [comedian, time] = value.split(",");
+
+        if (comedian && time) {
+          data.booking.push({comedian, time});
+          times.add(time);
+        }       
+      } else {
+        data[field] = value;
+      }
+      
+      if (times.size !== data.booking.length) {
+        notification.show('Нельзя быть на двух выступлениях одновременно', false);
+        // notification -> ''
+      }
+    });
+  });
 }
 
 init()
