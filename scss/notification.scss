@@ -16,6 +16,7 @@
   &_show{
     opacity: 1;
     transform: translateX(0);
+    pointer-events: none;
   }
 
   &_error {
