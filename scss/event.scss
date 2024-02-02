@@ -27,6 +27,10 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   background-repeat: no-repeat;
 
   color: $header-text-color;
+  
+  transition: opacity 0.5s, visibility 0.5s;
+  opacity: 1;
+  visibility: visible;
 
   padding: 30px;
 
@@ -35,6 +39,13 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     padding: 80px 16px 60px;
   }
   
+  // .event__hidden
+  &__hidden {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+  }
 
   // .event__title
 
@@ -140,6 +151,8 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   &__button {
 
     font-size: 24px;
+    visibility: visible;
+    opacity: 1;
 
     // .event__button_reserve
 
@@ -150,6 +163,11 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
       }
     }
 
+    // .event__button_hidden
+    &_hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
     
     &_edit {
       display: flex;

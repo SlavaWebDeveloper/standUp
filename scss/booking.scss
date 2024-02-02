@@ -19,6 +19,18 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   color: $text-color;
   background-color: $page-background;
 
+  opacity: 1;
+  visibility: visible;
+
+  // .booking__hidden
+  &__hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+  }
+  
   // .booking__container
 
   &__container {
