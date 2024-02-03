@@ -1,12 +1,15 @@
 import Inputmask from 'inputmask';
 import JustValidate from 'just-validate';
 import { Notification } from './notification';
+import { sendData } from './api';
 
 export const initForm = (
   bookingForm, 
   bookingInputFullname, 
   bookingInputPhone, 
-  bookingInputTicket
+  bookingInputTicket,
+  changeSelection,
+  bookingCommediansList, 
   ) => 
   {
     const validate = new JustValidate(
@@ -72,7 +75,13 @@ export const initForm = (
 
     });
 
-    bookingForm.addEventListener('submit', (e) => {
+    bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!validate.isValid) {
+        return;
+      }
+
       const data = {booking: []};
       const times = new Set();
 
@@ -87,13 +96,43 @@ export const initForm = (
         } else {
           data[field] = value;
         }
-        
-        if (times.size !== data.booking.length) {
-          Notification.getInstance().show(
-            'Нельзя быть на двух выступлениях одновременно', 
-            false
-          );
-        }
       });
+
+      if (times.size !== data.booking.length) {
+        Notification.getInstance().show(
+          'Нельзя быть на двух выступлениях одновременно', 
+          false,
+        );
+        return;
+      }
+
+      if (!times.size) {
+        Notification.getInstance().show('Вы не выбрали комика и/или время');
+        return;
+      }
+
+      const method = bookingForm.getAttribute("method");
+
+      let isSend = false;
+
+      if (method === "PATCH") {
+        isSend = await sendData(method, data, data.ticketNumber);
+      } else {
+        isSend = await sendData(method, data);
+      }
+
+      if (isSend) {
+
+        // Показываем уведомление об успешном завершении операции
+        const successMessage = method === "PATCH" ? "Редактирование брони принято" : "Бронь принята";
+        Notification.getInstance().show(successMessage, true);
+        
+        // Очищаем форму и список комиков
+        changeSelection();
+        bookingForm.reset();
+        bookingCommediansList.textContent = "";
+      }
+
+      console.log(data);
     }); 
   };

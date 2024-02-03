@@ -21,23 +21,25 @@ const init = async () => {
   
   if (comedians) {
     countComedians.textContent = comedians.length;  
-    const comedianBlock = creatCommedianBlock(comedians, bookingCommediansList);
-    bookingCommediansList.append(comedianBlock);
 
-    initChangeSelection(
+    const changeSelection = initChangeSelection(
       bookingForm,
       event,
       booking,
       eventButtonReserve,
       eventButtonEdit,
-      bookingTitle
+      bookingTitle,
+      comedians,
+      bookingCommediansList,
     );
 
     initForm(
       bookingForm, 
       bookingInputFullname, 
       bookingInputPhone, 
-      bookingInputTicket
+      bookingInputTicket,
+      changeSelection,
+      bookingCommediansList,
     );
   }
 };
