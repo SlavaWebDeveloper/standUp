@@ -1,3 +1,4 @@
+// .modal
 .modal {
   display: none;
   align-items: center;
@@ -8,27 +9,30 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 
+  // .modal_show
   &_show {
     display: flex;
   }
-
+  
+  // .modal__content
   &__content {
     position: relative;
     padding: 40px;
     margin: auto;
-    background-color: #fff;
+    background-color: var(--background-color);
     border: 1px solid #888;
   }
 
+  // .modal__close
   &__close {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    inset-block-start: 15px;
+    inset-inline-end: 15px;
     color: #555;
 
     &:hover,
     &:focus {
-      color: #000;
+      color: var(--text-color);
     }
   }
 }

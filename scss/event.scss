@@ -12,8 +12,9 @@ $text-color: var(--text-color, #1a1a1a);
 $placeholder-colot: var(--placeholder-colot, #bababa);   
 
 .event {
-  width: 100%;
-  min-height: 100vh;
+  
+  inline-size: 100%;
+  min-block-size: 100vh;
   
   display: flex;
   align-items: center;
@@ -37,58 +38,56 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   @include mobile-s {
     justify-content: flex-start;
     padding: 80px 16px 60px;
+    justify-content: center;
   }
   
   // .event__hidden
   &__hidden {
+    display: none;
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    width: 100%;
-  }
+    inline-size: 100%;
+    }
 
   // .event__title
-
   &__title {
-    font-size: 100px;
+    font-size: clamp(5rem, 1.923rem + 4.81vw, 6.25rem);
     font-weight: 800;
     line-height: 1.2; 
-    margin-bottom: 50px;
+    margin-block-end: 50px;
     text-align: center;
 
     @include tablet {
-      font-size: 70px;
-      margin-bottom: 39px;
+      font-size: clamp(2.375rem, -1.578rem + 9.3vw, 4.375rem);
+      margin-block-end: 39px;
     }
     
     @include mobile-s {
-      font-size: 38px;
-      margin-bottom: 8px;
+      margin-block-end: 8px;
     }
   }
 
   // .event__info
-
   &__info {
     display: flex;
     gap: 80px; 
-    margin-bottom: 62px;
+    margin-block-end: 62px;
 
     @include tablet {
       gap: 50px; 
-      margin-bottom: 45px;
+      margin-block-end: 45px;
     }
     
     @include mobile-s {
       display: grid;
       grid-template-columns: max-content max-content;
       gap: 10px;
-      margin-bottom: 30px;
+      margin-block-end: 30px;
     }
   }
 
   // .event__info-item
-
   &__info-item {
     display: flex;
     align-items: baseline;
@@ -100,30 +99,9 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     @include tablet {
       font-size: 24px;
     }
-
-    // .event__info-item_day
-
-    &_day {
-    }
-
-    // .event__info-item_hall
-
-    &_hall {
-    }
-
-    // .event__info-item_duration
-
-    &_duration {
-    }
-
-    // .event__info-item_comedians
-
-    &_comedians {
-    }
   }
 
   // .event__info-number
-
   &__info-number {
     font-size: 80px;
     font-weight: 800;
@@ -132,8 +110,13 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     @include tablet {
       font-size: 50px;
     }
+
+    @include mobile-s {
+      font-size: 20px;
+    }
   }
 
+  // .event__button-inner
   &__button-inner {
     display: flex;
     flex-direction: column;
@@ -141,23 +124,18 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     gap: 24px;
 
     @include mobile-s {
-      gap: 20px;  
-      margin-top: auto;
+      gap: 20px; 
     }
   }
 
   // .event__button
-
   &__button {
-
     font-size: 24px;
     visibility: visible;
     opacity: 1;
 
     // .event__button_reserve
-
     &_reserve {
-
       @include tablet {
         font-size: 18px;
       }
@@ -169,6 +147,7 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
       opacity: 0;
     }
     
+    // .event__button_edit
     &_edit {
       display: flex;
       align-items: center;

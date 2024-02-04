@@ -9,8 +9,8 @@ html {
 }
 
 body {
-  min-width: 320px;
-  min-height: 100vh;
+  min-inline-size: 320px;
+  min-block-size: 100vh;
   font-family: var(--font-family), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,12 +25,12 @@ body {
 img, 
 svg {
   display: block;
-  max-width: 100%;
+  max-inline-size: 100%;
   height: auto;
 }
 
 svg {
-  max-height: 100%;
+  max-block-size: 100%;
 }
 
 button {
@@ -70,8 +70,8 @@ fieldset {
 }
 
 .container {
-  max-width: 1440px;
-  width: 100%;
+  max-inline-size: 1440px;
+  inline-size: 100%;
   margin: 0 auto;
   padding: 80px;
 

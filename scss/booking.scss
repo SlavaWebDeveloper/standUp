@@ -12,13 +12,12 @@ $text-color: var(--text-color, #1a1a1a);
 $placeholder-colot: var(--placeholder-colot, #bababa);   
 
 .booking {
-  width: 100%;
-  min-height: 100vh;
+  inline-size: 100%;
+  block-size: 100vh;
   display: flex;
   align-items: center;
   color: $text-color;
   background-color: $page-background;
-
   opacity: 1;
   visibility: visible;
 
@@ -28,21 +27,22 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    width: 100%;
+    inline-size: 100%;
   }
   
-  // .booking__container
-
-  &__container {
-  }
-
   // .booking__title
-
   &__title {
     font-size: 46px;
     font-weight: 800;
     margin-block-end: 50px;
     line-height: 1.2;
+
+    // .booking__title-qr
+    &-qr {
+      font-size: 34px;
+      margin-block-end: 20px;
+      grid-column: 1 / -1;
+    }
 
     @include tablet {
       font-size: 32px;
@@ -53,55 +53,37 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
       font-size: 24px;
       margin-block-end: 32px;
     }
-    
-    // .booking__title-qr
-    &-qr {
-      font-size: 34px;
-      margin-block-end: 20px;
-      grid-column: 1 / -1;
-      
-    }
-  }
-
-  // .booking__form
-
-  &__form {
   }
 
   // .booking__fieldset
-
   &__fieldset {
 
     // .booking__fieldset_user-info
-
     &_user-info {
-      margin-bottom: 50px;
+      margin-block-end: 50px;
 
       @include tablet {
-        margin-bottom: 40px;
+        margin-block-end: 40px;
       }
     }
 
     // .booking__fieldset_commedians
-
     &_commedians {
-      margin-bottom: 122px;
+      margin-block-end: 122px;
 
       @include tablet {
-        margin-bottom: 82px;
+        margin-block-end: 82px;
       }
     }
   }
 
   // .booking__legend
-
   &__legend {
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-block-end: 20px;
   }
 
   // .booking__input-group
-
   &__input-group {
     display: flex;
     gap: 8px;
@@ -112,22 +94,21 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   }
 
   // .booking__input
-
   &__input {
     display: block;
-    max-width: 380px;
-    height: 44px;
-    width: 100%;
+    max-inline-size: 380px;
+    block-size: 44px;
+    inline-size: 100%; 
     font-size: 18px;
     line-height: 1.4;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: var(--background-color);
     color: $text-color;
     border: 1px solid transparent;
     padding: 0 16px;
 
     @include mobile {
-      max-width: none;
+      max-inline-size: none;
     }
 
     &::placeholder {
@@ -135,12 +116,12 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     }
     
     &:hover {
-      color: #f9f9f9; 
+      color: var(--background-color-hover); 
     }
     
     &:focus {
-      border-color:#bcbcbc;
-      outline: none
+      border-color:var(--background-color-focus);
+      outline: none;
     }
 
     &_valid {
@@ -152,23 +133,7 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     }
   }
 
-  // .booking__input-fullname
-
-  &__input-fullname {
-  }
-
-  // .booking__input-phone
-
-  &__input-phone {
-  }
-
-  // .booking__input-ticket
-
-  &__input-ticket {
-  }
-
   // .booking__commedians-list
-
   &__commedians-list {
     display: flex;
     flex-direction: column;
@@ -176,7 +141,6 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   }
 
   // .booking__commedian
-
   &__commedian {
     display: flex;
     align-items: center;
@@ -187,53 +151,40 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   }
   
   // .booking__select
-
   &__select {
-    margin-right: 8px;
-    width: 100%;
-    height: 44px;
-
-    // padding: 0 16px;
-    // background-color: #fff;
+    inline-size: 100%;
+    block-size: 44px;
+    margin-inline-end: 8px;
 
     // .booking__select_comedian
-
 			&_comedian {
-        max-width: 380px;
+        max-inline-size: 380px;
 
         @include mobile-s {
-          max-width: none;
-          margin-bottom: 8px;
+          max-inline-size: none;
+          margin-block-end: 8px;
         }
 			}
 
 			// .booking__select_time
-
 			&_time {
-        max-width: 183px;
-        margin-right: 18px;
+        max-inline-size: 183px;
+        margin-inline-end: 18px;
 			}
   }
 
   // .booking__hall
-
   &__hall {
     white-space: nowrap;
     font-size: 18px;
     line-height: 1.4;
-    padding-right: 32px;
+    padding-inline-end: 32px;
     background: url('./../images/gg_qr.svg') right/24px no-repeat;
   }
 
   // .booking__button
-
   &__button {
     font-size: 18px;
-  }
-
-  // .booking__button-sumbit
-
-  &__button-sumbit {
   }
 
   // .booking__client-info
@@ -248,9 +199,24 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
     }
   }
 
+  // .booking_list
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+  }
+  
+  // .booking__close
+  &__close {
+    position: absolute;
+    inset-block-start: 35px;
+    inset-inline-end: 35px;
+    font-size: clamp(1.875rem, 1.607rem + 1.34vw, 2.813rem);
+    color: #555;
+
+    &:hover,
+    &:focus {
+      color: var(--text-color);
+    }
   }
 }

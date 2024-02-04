@@ -1,32 +1,34 @@
+// .notification
 .notification {
   position: fixed;
   inset-inline-end: 50px;
   inset-block-end: 50px;
   color: #fff;
-  font-size: 30px;
+  font-size: clamp(0.938rem, 0.813rem + 0.63vw, 1.375rem);
   font-weight: 800;
   line-height: 1.2;
   border-radius: 16px;
   background-color: var(--background-color-button);
-  padding: 32px;
+  padding: clamp(0.625rem, 0.446rem + 0.89vw, 1.25rem);
   z-index: 100;
   opacity: 0;
   transform: translateX(100%);
-
+  
+  // .notification_show
   &_show{
     opacity: 1;
     transform: translateX(0);
-    pointer-events: none;
+    // pointer-events: none;
   }
 
+  // .notification_error
   &_error {
     background-color: var(--button-error);
   }
 
+  // .notification_success
   &_success {
-    padding-right: 76px;
+    padding-inline-end: 76px;
     background: var(--button-confirmation) url('../images/check.svg') right 32px center / 36px no-repeat;
   }
-
-
 }
