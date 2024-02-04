@@ -8,10 +8,10 @@
     <script type="module" src="/main.js"></script>
   </head>
   <body>
-    <section class="event">
-      <h1 class="event__title">StandUp Party</h1>
+    <section class="event" role="region" aria-labelledby="eventTitle">
+      <h1 id="eventTitle" class="event__title">StandUp Party</h1>
 
-      <div class="event__info">
+      <div class="event__info" role="group" aria-label="Информация о мероприятии">
         <div class="event__info-item event__info-item_day">
           <span class="event__info-number">1</span>день
         </div>
@@ -27,10 +27,10 @@
       </div>
 
       <div class="event__button-inner"> 
-        <button class="button event__button event__button_reserve event__button_hidden">
+        <button class="button event__button event__button_reserve event__button_hidden" aria-label="Забронировать места">
           Забронировать места
         </button>
-        <button class="event__button event__button_edit event__button_hidden">
+        <button class="event__button event__button_edit event__button_hidden" aria-label="Редактировать бронь">
           Редактировать бронь
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,15 +48,15 @@
       </div>
     </section>
 
-    <section class="booking booking__hidden">
+    <section class="booking booking__hidden" role="region" aria-labelledby="bookingTitle">
       <div class="container booking__container">
-        <h2 class="booking__title">Забронируйте место в зале</h2>
+        <h2 id="bookingTitle" class="booking__title">Забронируйте место в зале</h2>
 
-        <form class="booking__form" method="POST">
+        <form class="booking__form" method="POST" role="form" aria-label="Форма бронирования">
           <fieldset class="booking__fieldset booking__fieldset_user-info">
             <legend class="booking__legend">Введите данные</legend>
 
-            <div class="booking__input-group">
+            <div class="booking__input-group" role="group" aria-label="Поля для ввода данных">
               <input
                 class="booking__input booking__input_fullname"
                 type="text"
@@ -80,14 +80,15 @@
 
           <fieldset class="booking__fieldset booking__fieldset_commedians">
             <legend class="booking__legend">Выберите комика</legend>
-            <ul class="booking__commedians-list">
+            <ul class="booking__commedians-list" role="list" aria-label="Список комиков">
               
             </ul>
           </fieldset>
 
-          <button class="button booking__button booking__button-sumbit" type="submit">Сохранить</button>
+          <button class="button booking__button booking__button-sumbit" type="submit" aria-label="Сохранить бронирование">Сохранить</button>
         </form>
       </div>
+      <button class="booking__close" type="button" aria-label="Закрыть бронирование">&#65794;</button>
     </section>
   </body>
 </html>

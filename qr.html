@@ -8,9 +8,9 @@
     <script type="module" src="/main.js"></script>
   </head>
   <body>
-    <section class="booking">
+    <section class="booking" aria-labelledby="bookingTitle">
       <div class="container booking__container">
-        <h2 class="booking__title">Ваша бронь</h2>
+        <h2 id="bookingTitle" class="booking__title">Ваша бронь</h2>
 
         <div class="booking__client-info">
           <h3 class="booking__title-qr">Информация о клиенте</h3>
@@ -22,10 +22,10 @@
       </div>
     </section>
 
-    <div class="modal">
+    <div class="modal" role="dialog" aria-modal="true">
       <div class="modal__content">
-        <canvas id="qrCanvas"></canvas>
-        <button class="modal__close" type="button">&#65794;</button>
+        <canvas id="qrCanvas" aria-label="QR-код"></canvas>
+        <button class="modal__close" type="button" aria-label="Закрыть модальное окно">&#65794;</button>
       </div>
     </div>
   </body>
