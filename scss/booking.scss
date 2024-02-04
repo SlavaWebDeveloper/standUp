@@ -41,17 +41,25 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   &__title {
     font-size: 46px;
     font-weight: 800;
-    margin-bottom: 50px;
+    margin-block-end: 50px;
     line-height: 1.2;
 
     @include tablet {
       font-size: 32px;
-      margin-bottom: 40px;
+      margin-block-end: 40px;
     }
 
     @include mobile-s {
       font-size: 24px;
-      margin-bottom: 32px;
+      margin-block-end: 32px;
+    }
+    
+    // .booking__title-qr
+    &-qr {
+      font-size: 34px;
+      margin-block-end: 20px;
+      grid-column: 1 / -1;
+      
     }
   }
 
@@ -226,5 +234,23 @@ $placeholder-colot: var(--placeholder-colot, #bababa);
   // .booking__button-sumbit
 
   &__button-sumbit {
+  }
+
+  // .booking__client-info
+  &__client-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-block-end: 30px;
+
+    @include mobile {
+      margin-block-end: 15px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
   }
 }
