@@ -1,9 +1,9 @@
-import './style.css'
-import { getComedians } from './scripts/api';
-import { creatCommedianBlock } from './scripts/comedians';
-import { initForm } from './scripts/form';
-import { initChangeSelection } from './scripts/ChangeSelection';
-import { initQrPage } from './scripts/qrPage';
+import './../../style.css'
+import { getComedians } from '../api';
+import { creatCommedianBlock } from '../comedians';
+import { initForm } from '../form';
+import { initChangeSelection } from '../ChangeSelection';
+import { initQrPage } from '../qrPage';
 
 const init = async () => {  
 
