@@ -1,17 +1,17 @@
 # The project "Stand Up"
 
 ## Link to the project:
-The front end part of the site is deployed on the Net life service. The backend part of the site is deployed on the Glitch service.
+The front end part of the site is deployed on the Net life service. The backend part of the site is deployed on the Glitch service.  
 The website can be viewed here: https://65c4dabece26140dbcb78b4d--wonderful-pegasus-03380e.netlify.app/
 
 ## About the project
 
-### I have used the following plugins:
-Normalize -- plugin for normalizing styles
-tom-select -- a plugin for customizing select
-JustValidate -- form validation plugin
-Inputmask -- input mask plugin
-qrcode -- QR code/2d barcode generator.
+### I have used the following plugins:  
+Normalize -- plugin for normalizing styles  
+tom-select -- a plugin for customizing select  
+JustValidate -- form validation plugin  
+Inputmask -- input mask plugin  
+qrcode -- QR code/2d barcode generator.  
 
 
 ## Functionality
@@ -65,45 +65,45 @@ npm run build
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-File Tree:
-standup
-├── dist
-│   ├── assets
-│   │   └── ...
-│   │   └── ...
-│   └── index.html
-│   └── qr.html
-├── fonts
-│   ├──...
-│   └── ...
-├── images
-│   ├──...
-│   └── ...
-├── scripts
-│   └── api.js
-│   └── changeSelection.js
-│   └── comedians.js
-│   └── display.js
-│   └── form.js
-│   └── Notification.js
-│   └── qrPage.js
-│   └── showQrController.js
-├── scss
-│   └── base.scss
-│   └── booking.scss
-│   └── event.scss
-│   └── media.scss
-│   └── modal.scss
-│   └── notification.scss
-│   └── style.scss
-│   └── themes.scss
-│   └── tomselect.scss
-│   └── variables.scss
-└── style.css
-└── index.html
-└── qr.html
-└── main.js
-└── package-lock.json
-└── package.json
-└── vite.config.js
-└── README.txt
+## File Tree:  
+standup  
+├── dist  
+│   ├── assets  
+│   │   └── ...  
+│   │   └── ...  
+│   └── index.html  
+│   └── qr.html  
+├── fonts  
+│   ├──...  
+│   └── ...  
+├── images  
+│   ├──...  
+│   └── ...  
+├── scripts  
+│   └── api.js  
+│   └── changeSelection.js  
+│   └── comedians.js  
+│   └── display.js  
+│   └── form.js  
+│   └── Notification.js  
+│   └── qrPage.js  
+│   └── showQrController.js  
+├── scss  
+│   └── base.scss  
+│   └── booking.scss  
+│   └── event.scss  
+│   └── media.scss  
+│   └── modal.scss  
+│   └── notification.scss  
+│   └── style.scss  
+│   └── themes.scss  
+│   └── tomselect.scss  
+│   └── variables.scss  
+└── style.css  
+└── index.html  
+└── qr.html  
+└── main.js  
+└── package-lock.json  
+└── package.json  
+└── vite.config.js  
+└── README.txt  
